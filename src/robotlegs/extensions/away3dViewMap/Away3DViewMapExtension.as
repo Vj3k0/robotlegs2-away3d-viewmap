@@ -7,14 +7,14 @@
 package robotlegs.extensions.away3dViewMap
 {
 	import away3d.containers.View3D;
-	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+	
+	import org.hamcrest.object.instanceOf;
+	
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.IExtension;
 	import robotlegs.bender.framework.impl.UID;
 	import robotlegs.extensions.away3dViewMap.api.IAway3DViewMap;
 	import robotlegs.extensions.away3dViewMap.impl.Away3DViewMap;
-
-	import org.hamcrest.object.instanceOf;
 
 
 
@@ -29,24 +29,12 @@ package robotlegs.extensions.away3dViewMap
 		/* Public Properties                                                         */
 		/*============================================================================*/
 		
-		[Inject]
-		public var mediatorMap : IMediatorMap;
-		
 		/*============================================================================*/
 		/* Private Properties                                                         */
 		/*============================================================================*/
 		
 		private var _uid : String = UID.create(Away3DViewMapExtension);
 		private var _context : IContext;
-
-		/*============================================================================*/
-		/* Constructor                                                                */
-		/*============================================================================*/
-		
-		public function Away3DViewMapExtension()
-		{
-			
-		}
 
 		/*============================================================================*/
 		/* Public Functions                                                           */

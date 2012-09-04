@@ -11,8 +11,12 @@ package robotlegs.extensions.away3dViewMap.impl
 	import away3d.containers.Scene3D;
 	import away3d.containers.View3D;
 	import away3d.events.Scene3DEvent;
-
+	
+	import flash.events.IEventDispatcher;
+	
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+	import robotlegs.extensions.away3dViewMap.api.Away3DViewMapEvent;
+	import robotlegs.extensions.away3dViewMap.api.IAutoInit;
 	import robotlegs.extensions.away3dViewMap.api.IAway3DViewMap;
 
 	/**
@@ -25,13 +29,16 @@ package robotlegs.extensions.away3dViewMap.impl
 	{
 		/*============================================================================*/
 		/* Private Properties                                                         */
-		/*============================================================================*
-		 * 
-		 */
+		/*============================================================================*/
+		
 		[Inject]
 		public var view3D:View3D;
+		
 		[Inject]
 		public var mediatorMap : IMediatorMap;
+		
+		[Inject]
+		public var eventDispatcher:IEventDispatcher;
 
 		/*============================================================================*/
 		/* Private Properties                                                         */
@@ -58,6 +65,11 @@ package robotlegs.extensions.away3dViewMap.impl
 			// Note : we don't support swapping scenes now - one scene will do.
 				
 			addAway3DView( view3D.scene );
+			
+			// dispatch event to signalize that 3D scene is setup and ready to be used
+			// i.e. add handler for this event to know when it is safe to access view, scene, etc. 
+			
+			eventDispatcher.dispatchEvent(new Away3DViewMapEvent(Away3DViewMapEvent.STARTUP_COMPLETE));
 		}
 
 		/*============================================================================*/
@@ -67,7 +79,12 @@ package robotlegs.extensions.away3dViewMap.impl
 		public function addAway3DView(view : *) : void
 		{
 			if( validateView(view))
+			{
 				mediatorMap.mediate(view);
+				
+				if (view is IAutoInit)
+					IAutoInit(view).init();
+			}
 			else
 				throw new Error("Not sure what to do with this view type..");
 		}
@@ -75,6 +92,9 @@ package robotlegs.extensions.away3dViewMap.impl
 		public function removeAway3DView(view : *) : void
 		{
 			mediatorMap.unmediate(view);
+			
+			if (view is IAutoInit)
+				IAutoInit(view).kill();
 		}
 
 		/*============================================================================*/
