@@ -4,7 +4,6 @@ A Robotlegs2 extension to enable mapping IMediator's to Away3d ObjectContainer3D
 
 ## TODO
 
-- Add example project and link it in doc
 - Comment out code
 - Test extension
 
@@ -64,17 +63,3 @@ Setup your scene in that command:
 			view.scene.addChild(new SampleView());
 		}
 	}
-
-## Libraries
-Libraries required for this extension are:
-
-- Robotlegs v2.0.0b1
-- Away3D v4.0.9_gold
-
-## Credits
-Original author of extension is [Jamie Owen](https://github.com/jamieowen).
-
-
-
-
-

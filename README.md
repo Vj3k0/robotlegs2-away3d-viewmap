@@ -22,3 +22,5 @@ Libraries required for this extension are:
 ## Credits
 Original author of extension is [Jamie Owen](https://github.com/jamieowen).
 
+Extended by [Vjekoslav Ratkajec](https://github.com/Vj3k0).
+
