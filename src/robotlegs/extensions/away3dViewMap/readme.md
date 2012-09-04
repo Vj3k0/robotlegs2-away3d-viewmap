@@ -6,6 +6,7 @@ A Robotlegs2 extension to enable mapping IMediator's to Away3d ObjectContainer3D
 
 - Add example project and link it in doc
 - Comment out code
+- Test extension
 
 ## Features
 
@@ -44,7 +45,7 @@ For ease of use, if object wants to use automatic initialization/destruction it 
 
 ### Away3D startup complete
 
-Since Robotlegs framework doesn't have any specific event to mark that extension is finished setting up, event Away3DViewMapEvent.STARTUP_COMPLETE will be dispatched. At the time that this event is dispatched, it is safe to access any Away3D element (i.e. view, scene, etc.). 
+Since Robotlegs framework doesn't have any specific event to mark that extension is finished setting up, event `Away3DViewMapEvent.STARTUP_COMPLETE` will be dispatched. At the time that this event is dispatched, it is safe to access any Away3D element (i.e. view, scene, etc.). 
 
 You can use it to setup your 3D scene. In example, map it in your configuration to command:
 
