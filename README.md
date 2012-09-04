@@ -9,8 +9,16 @@ See the Readme.md file inside src/robotlegs/extensions/away3dViewMap for more in
 
 This is a work in progress but provides basic functionality until RL2 is released.
 
-## Requirements
+## Example
 
-+ Away3D 4
-+ RL2 dependencies : SwiftSuspenders / Hamcrest / etc
+Example using this extension is available [here](https://github.com/Vj3k0/robotlegs-bender-example-simpleaway3d).
+
+## Libraries
+Libraries required for this extension are:
+
+- Robotlegs v2.0.0b1
+- Away3D v4.0.9_gold
+
+## Credits
+Original author of extension is [Jamie Owen](https://github.com/jamieowen).
 

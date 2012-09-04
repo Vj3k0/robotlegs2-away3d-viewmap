@@ -72,7 +72,7 @@ Libraries required for this extension are:
 - Away3D v4.0.9_gold
 
 ## Credits
-Original author of extension is [Jamie Owen](https://github.com/jamieowen) .
+Original author of extension is [Jamie Owen](https://github.com/jamieowen).
 
 
 
